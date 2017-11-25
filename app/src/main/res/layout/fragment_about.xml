@@ -1,0 +1,80 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.carmona.pillbox.Fragments.AboutFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/edtUsuario"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="serif"
+            android:hint="Pillbox"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/edtPassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtUsuario"
+            android:layout_centerInParent="true"
+
+            android:fontFamily="serif"
+            android:hint="ver Early Access"
+            android:inputType="textPassword"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/txtAbout3"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtPassword"
+            android:layout_centerInParent="true"
+
+            android:fontFamily="serif"
+            android:hint="Developed by Carmona at Bandido Studios \n Powered by Alio Mexico \n For PATAM."
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_above="@+id/edtUsuario"
+            android:layout_centerHorizontal="true"/>
+        <LinearLayout
+            android:layout_below="@+id/txtAbout3"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgAbout1"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:src="@mipmap/aliologo"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                />
+            <ImageView
+                android:id="@+id/imgAbout2"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:src="@mipmap/github"
+                android:layout_marginLeft="50dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

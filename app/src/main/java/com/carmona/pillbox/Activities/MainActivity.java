@@ -1,6 +1,10 @@
 package com.carmona.pillbox.Activities;
 
-import android.content.Intent;
+import android.app.Fragment;
+import android.app.FragmentManager;
+
+import android.app.FragmentTransaction;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,11 +18,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.carmona.pillbox.Classes.About;
+import com.carmona.pillbox.Fragments.AboutFragment;
 import com.carmona.pillbox.R;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AboutFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,9 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        AboutFragment af = new AboutFragment();
+        verFragment(af);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -85,19 +92,31 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(this, SplashActivity.class);
-            startActivity(intent);
+            AboutFragment af = new AboutFragment();
+            verFragment(af);
         } else if (id == R.id.nav_citas) {
 
         } else if (id == R.id.nav_notificacion) {
 
         } else if (id == R.id.nav_contacto) {
-            About a = new About(this);
-            a.alerta();
+            AboutFragment af = new AboutFragment();
+            verFragment(af);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void verFragment(Fragment fragment){
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.add(R.id.Contendor,fragment);
+        ft.commit();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
