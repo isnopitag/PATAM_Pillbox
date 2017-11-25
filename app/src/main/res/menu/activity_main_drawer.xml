@@ -5,33 +5,25 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_home"
+            android:icon="@mipmap/ic_home_black_36dp"
+            android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_citas"
+            android:icon="@mipmap/ic_date_range_black_36dp"
+            android:title="Citas" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_notificacion"
+            android:icon="@mipmap/ic_announcement_black_36dp"
+            android:title="Enviar notificación" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Contacto">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_contacto"
+                android:icon="@mipmap/ic_contact_mail_black_36dp"
+                android:title="Acerca de esta App" />
         </menu>
     </item>
 
