@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.carmona.pillbox.Classes.About;
 import com.carmona.pillbox.R;
 
 public class MainActivity extends AppCompatActivity
@@ -91,7 +92,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_notificacion) {
 
         } else if (id == R.id.nav_contacto) {
-
+            About a = new About(this);
+            a.alerta();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
