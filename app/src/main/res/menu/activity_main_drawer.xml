@@ -15,7 +15,7 @@
         <item
             android:id="@+id/nav_notificacion"
             android:icon="@mipmap/ic_announcement_black_36dp"
-            android:title="Enviar notificación" />
+            android:title="Historia de notificaciones" />
     </group>
 
     <item android:title="Contacto">

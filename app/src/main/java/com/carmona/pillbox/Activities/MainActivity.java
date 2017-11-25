@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,10 +20,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.carmona.pillbox.Fragments.AboutFragment;
+import com.carmona.pillbox.Fragments.CitasFragment;
+import com.carmona.pillbox.Fragments.HomeFragment;
+import com.carmona.pillbox.Fragments.NotificacionesFragment;
 import com.carmona.pillbox.R;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AboutFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        AboutFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener,
+        CitasFragment.OnFragmentInteractionListener,
+        NotificacionesFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Enviar Notificacion...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -46,8 +54,8 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        AboutFragment af = new AboutFragment();
-        verFragment(af);
+        HomeFragment hf = new HomeFragment();
+        verFragment(hf);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -92,12 +100,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            AboutFragment af = new AboutFragment();
-            verFragment(af);
+            HomeFragment hf = new HomeFragment();
+            verFragment(hf);
         } else if (id == R.id.nav_citas) {
-
+            CitasFragment cf = new CitasFragment();
+            verFragment(cf);
         } else if (id == R.id.nav_notificacion) {
-
+            NotificacionesFragment nf = new NotificacionesFragment();
+            verFragment(nf);
         } else if (id == R.id.nav_contacto) {
             AboutFragment af = new AboutFragment();
             verFragment(af);
