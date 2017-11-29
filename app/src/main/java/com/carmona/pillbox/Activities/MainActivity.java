@@ -32,11 +32,14 @@ public class MainActivity extends AppCompatActivity
         CitasFragment.OnFragmentInteractionListener,
         NotificacionesFragment.OnFragmentInteractionListener {
 
+    private FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        fragmentManager = getFragmentManager();
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -118,11 +121,24 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void verFragment(Fragment fragment){
+    /*public void verFragment(Fragment fragment){
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.add(R.id.Contendor,fragment);
         ft.commit();
+    }*/
+
+    private void verFragment(Fragment fragment) {
+        if (fragmentManager.findFragmentByTag(fragment.getClass().getSimpleName()) != null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.Contendor, fragmentManager.findFragmentByTag(fragment.getClass().getSimpleName()), fragment.getClass().getSimpleName())
+                    .commit();
+        } else {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.Contendor, fragment, fragment.getClass().getSimpleName())
+                    .commit();
+        }
+        //updateMenu(fragment);
     }
 
     @Override
