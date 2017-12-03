@@ -31,13 +31,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.carmona.pillbox.Config.Preferences.APP_USER;
 import static com.carmona.pillbox.Config.Preferences.BASE_URL;
 
 public class LoginActivity extends AppCompatActivity implements Callback<List<Login>> {
 
     private String user;
     private String pass;
-    private String iduser;
+    private int iduser;
     private LoginRVAdapter mLoginRVAdapter;
     private ArrayList<Login> mLogin;
 
@@ -92,17 +93,26 @@ public class LoginActivity extends AppCompatActivity implements Callback<List<Lo
 
         if(response.isSuccessful()) {
             List<Login> LoginList = response.body();
+            APP_USER = Integer.parseInt(LoginList.get(0).getIdusuario());
+            iduser = APP_USER;
 
-            Toast.makeText(this,"Id "+LoginList.get(0).getIdusuario(),Toast.LENGTH_LONG).show();
-            //mLogin.clear();
-            /*for (Login login : LoginList) {
-                mLogin.add(login);
-            }*/
-            //mLoginRVAdapter.notifyDataSetChanged();
+            Toast.makeText(this,"Id "+iduser,Toast.LENGTH_LONG).show();
+            if(iduser > 0 ){
+                Toast.makeText(this,"Bienvenido "+user+" !",Toast.LENGTH_SHORT).show();
+                mostrarSistema();
+            }else{
+                Toast.makeText(this,"Usuario o contraseña incorrectos! :'( "+iduser,Toast.LENGTH_SHORT).show();
+            }
         } else {
             System.out.println(response.errorBody());
         }
 
+    }
+
+    private void mostrarSistema() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
