@@ -39,10 +39,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtDosis"
+            android:id="@+id/txtDescripcion"
             android:layout_toRightOf="@+id/img_logo"
             android:layout_below="@+id/txtHora"
-            android:text="Dosis:"/>
+            android:text="Descripcion"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFechaini"
+            android:layout_toRightOf="@+id/img_logo"
+            android:layout_below="@+id/txtDescripcion"
+            android:text="Fecha Ini"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFechafin"
+            android:layout_toRightOf="@+id/img_logo"
+            android:layout_below="@+id/txtFechaini"
+            android:text="Fecha Fin:"/>
     </RelativeLayout>
 
 
