@@ -4,27 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.carmona.pillbox.API.PillboxAPI;
-import com.carmona.pillbox.Adapters.LoginRVAdapter;
 import com.carmona.pillbox.Models.Login;
 import com.carmona.pillbox.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,7 +33,6 @@ public class LoginActivity extends AppCompatActivity implements Callback<List<Lo
     private String user;
     private String pass;
     private int iduser;
-    private LoginRVAdapter mLoginRVAdapter;
     private ArrayList<Login> mLogin;
 
     @BindView (R.id.edtPassword)
@@ -63,8 +56,6 @@ public class LoginActivity extends AppCompatActivity implements Callback<List<Lo
                 user = edtUsuario.getText().toString();
                 pass = edtPassword.getText().toString();
                 login();
-                Toast.makeText(this,"User"+user+" Pass"+pass,Toast.LENGTH_SHORT).show();
-
                 break;
         }
 
@@ -96,12 +87,12 @@ public class LoginActivity extends AppCompatActivity implements Callback<List<Lo
             APP_USER = Integer.parseInt(LoginList.get(0).getIdusuario());
             iduser = APP_USER;
 
-            Toast.makeText(this,"Id "+iduser,Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"Id "+iduser,Toast.LENGTH_SHORT).show();
             if(iduser > 0 ){
                 Toast.makeText(this,"Bienvenido "+user+" !",Toast.LENGTH_SHORT).show();
                 mostrarSistema();
             }else{
-                Toast.makeText(this,"Usuario o contraseña incorrectos! :'( "+iduser,Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Usuario o contraseña incorrectos! :'( ",Toast.LENGTH_SHORT).show();
             }
         } else {
             System.out.println(response.errorBody());

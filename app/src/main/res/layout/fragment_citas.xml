@@ -5,10 +5,6 @@
     tools:context="com.carmona.pillbox.Fragments.CitasFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Citas..."/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvCitas"
         android:scrollbars="vertical"
