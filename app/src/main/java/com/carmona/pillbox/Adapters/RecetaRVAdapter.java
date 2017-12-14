@@ -44,14 +44,6 @@ public class RecetaRVAdapter extends RecyclerView.Adapter<RecetaRVAdapter.ViewHo
         holder.txtFechaini.setText("Fecha Inicio: "+aReceta.getFechaini());
         holder.txtFechafin.setText("Fecha Fin: "+aReceta.getFechafin());
         holder.txtDescripcion.setText("Dosis: "+aReceta.getDescripcion());
-        /*holder.rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mContext instanceof PostRVAdapterListener) {
-                    ((PostRVAdapterListener) mContext).OnItemClicked(aReceta);
-                }
-            }
-        });*/
     }
 
     @Override

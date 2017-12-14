@@ -31,6 +31,9 @@ public interface PillboxAPI {
     @GET("Server.php?action=citas")
     Call<List<Cita>> citas(@Query("id") String iduser);
 
+    @GET("Server.php?action=enviar")
+    Call<List<Notificaciones>> notificacion(@Query("id") String iduser,@Query("mensaje") String mensaje);
+
     @GET("Server.php?action=noti")
     Call<List<Notificaciones>> notificaciones(@Query("id") String iduser);
 }
